@@ -38,6 +38,7 @@ public class MovementController : MonoBehaviour
     {
         ResetVelocity(joint);
         joint.connectedAnchor = new Vector2(pos.x, pos.y);
+        joint.transform.localRotation = Quaternion.identity;
         joint.useMotor = true;
     }
 
@@ -53,6 +54,8 @@ public class MovementController : MonoBehaviour
     {
         joint.connectedBody.velocity = Vector2.zero;
         joint.connectedBody.angularVelocity = 0;
+        joint.attachedRigidbody.velocity = Vector2.zero;
+        joint.attachedRigidbody.angularVelocity = 0;
     }
 
     private void Stop()
